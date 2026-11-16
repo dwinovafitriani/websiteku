@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PANTAU-IN: Pantau Inovasi Sekolah</title>
+<style>
+:root{--bg:#f4f7fb;--sf:#fff;--tx:#14263f;--mu:#5a6b82;--ln:#dbe3ee;--bl:#1a5599;--bls:#e6f0fb;--gr:#2f9e55;--grs:#e3f5ea;--ye:#e6b422;--yes:#fff4cc;--rd:#d4493e;--rds:#fde7e5;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a2b;--sf:#172640;--tx:#e8eef7;--mu:#9fb0c7;--ln:#2b3d5a;--bl:#6aa6ee;--bls:#1d3558;--gr:#4cc47a;--grs:#173a28;--ye:#f0c649;--yes:#44380f;--rd:#f0786d;--rds:#46201d}}
+:root[data-theme="dark"]{--bg:#0f1a2b;--sf:#172640;--tx:#e8eef7;--mu:#9fb0c7;--ln:#2b3d5a;--bl:#6aa6ee;--bls:#1d3558;--gr:#4cc47a;--grs:#173a28;--ye:#f0c649;--yes:#44380f;--rd:#f0786d;--rds:#46201d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--sf);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--sf);border-bottom:1px solid var(--ln);padding:10px 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:800;color:var(--bl);letter-spacing:.2px}
+.brand small{display:block;font-size:12px;font-weight:500;color:var(--mu)}
+select,input,textarea,button{font:inherit;color:var(--tx)}
+select,input[type=text],input[type=number],input[type=date],textarea{background:var(--sf);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;width:100%}
+.role{width:auto;font-weight:600}
+nav{display:flex;gap:6px;overflow-x:auto;margin-top:10px;padding-bottom:2px}
+nav button{white-space:nowrap;border:1px solid var(--ln);background:var(--sf);border-radius:999px;padding:6px 14px;cursor:pointer}
+nav button.on{background:var(--bl);border-color:var(--bl);color:#fff;font-weight:600}
+main{max-width:980px;margin:0 auto;padding:16px}
+h2{font-size:20px;margin:4px 0 4px}
+h3{font-size:16px;margin:0 0 8px}
+.sub{color:var(--mu);margin:0 0 14px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:14px;margin-bottom:14px}
+.grid{display:grid;gap:12px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.stat b{display:block;font-size:26px;line-height:1.1}
+.stat span{color:var(--mu);font-size:13px}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:14px}
+.filters label,.f label{font-size:13px;color:var(--mu);display:block;margin-bottom:3px}
+.f{margin-bottom:10px}
+.bar{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:13px}
+.bar .n{width:52px;flex:none}
+.bar .t{flex:1;display:flex;height:18px;border-radius:5px;overflow:hidden;background:var(--ln)}
+.bar .p{width:44px;text-align:right;font-weight:700;flex:none}
+.sg{background:var(--gr)}.sy{background:var(--ye)}.sr{background:var(--rd)}
+.leg{font-size:12px;color:var(--mu);display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px;border-bottom:1px solid var(--ln);text-align:left}
+th{font-size:13px;color:var(--mu);font-weight:600}
+.sw{overflow-x:auto}
+.cell{display:inline-block;min-width:92px;padding:4px 8px;border-radius:6px;font-weight:600;font-size:13px}
+.c-g{background:var(--grs);color:var(--gr)}.c-y{background:var(--yes);color:#8a6a00}.c-r{background:var(--rds);color:var(--rd)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .c-y{color:var(--ye)}}
+.btn{background:var(--bl);color:#fff;border:0;border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600}
+.btn.sec{background:var(--bls);color:var(--bl)}
+.btn.sm{padding:4px 10px;font-size:13px}
+.btn:disabled{opacity:.55;cursor:default}
+.item{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--ln)}
+.item:last-child{border:0}
+.tag{font-size:12px;padding:2px 8px;border-radius:999px}
+.timer{background:var(--bls);color:var(--bl);border-radius:8px;padding:8px 12px;font-weight:600;margin-bottom:12px}
+.likert{display:flex;gap:10px;flex-wrap:wrap;font-size:13px}
+.likert label{display:flex;gap:3px;align-items:center;color:var(--tx);margin:0}
+.q{padding:10px 0;border-bottom:1px solid var(--ln)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+.toast.on{opacity:1}
+footer{text-align:center;color:var(--mu);font-size:12px;padding:10px 16px 24px}
+@media print{header,footer,.noprint,body::before{display:none!important}body{background:#fff;color:#000}.card{border-color:#999}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <div class="brand">PANTAU-IN<small>Pantau inovasi SDN Songgokerto II</small></div>
+  <select id="role" class="role" aria-label="Peran pengguna">
+   <option value="kepsek">Kepala sekolah</option>
+   <option value="guru">Guru kelas</option>
+   <option value="pemantau">Pemantau (dosen)</option>
+  </select>
+ </div>
+ <nav id="nav" aria-label="Menu"></nav>
+</header>
+<main id="main"></main>
+<footer>Prototipe: data simulasi, bukan data sekolah. Data isian tersimpan di perangkat ini.</footer>
+<div id="toast" class="toast" role="status"></div>
+<script>
+var KEY="pantain-v1",TODAY=new Date().toISOString().slice(0,10);
+var BL=["Agu","Sep","Okt","Nov"],BN=["Agustus","September","Oktober","November"],BM=[8,9,10,11];
+var GURU=["Bu Rina","Pak Dedi","Bu Sari","Pak Andi","Bu Wulan","Pak Heru"];
+var PROG={"Prasasti":[["Membacakan puisi",3],["Bercerita ulang buku",8],["Public speaking",12],["Pasar mini numerasi",16]],"Esoda Magazine":[["Kirim karya siswa",14],["Rapat redaksi kelas",15]]};
+var RATE=[.93,.88,.62,.78,.5,.84];
+var SUSQ=["Saya ingin sering memakai PANTAU-IN.","PANTAU-IN terasa terlalu rumit.","PANTAU-IN mudah digunakan.","Saya butuh bantuan orang lain untuk memakainya.","Fitur-fiturnya terpadu dengan baik.","Terlalu banyak yang tidak konsisten di aplikasi ini.","Orang lain akan cepat belajar memakainya.","Aplikasi ini membingungkan.","Saya percaya diri memakai aplikasi ini.","Saya perlu belajar banyak dulu sebelum memakainya."];
+var S,view,role="kepsek",F={b:"all",k:"all",p:"all"},tmr=null,t0=0;
+function seed(){var s=7,r=function(){s=(s*16807)%2147483647;return s/2147483647},a=[],id=1;
+ for(var k=1;k<=6;k++)BM.forEach(function(m,bi){Object.keys(PROG).forEach(function(p){PROG[p].forEach(function(x){var v=r(),st=v<RATE[k-1]*.72?"tepat":v<RATE[k-1]?"telat":"belum";
+ a.push({id:id++,k:k,p:p,n:x[0],b:bi,d:"2026-"+(m<10?"0":"")+m+"-"+(x[1]<10?"0":"")+x[1],s:st,g:GURU[k-1]})})})});
+ return {acts:a,praktik:[{j:"Pasar mini kelas 4",k:4,t:"Siswa jadi pedagang dan pembeli, berlatih menghitung harga dan kembalian."},{j:"Pojok cerita perpustakaan",k:2,t:"Siswa menceritakan ulang buku dengan kartu pertanyaan sederhana."}],sus:[],waktu:[],sent:{}}}
+function load(){try{var x=localStorage.getItem(KEY);S=x?JSON.parse(x):seed()}catch(e){S=seed()}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.className="toast on";setTimeout(function(){t.className="toast"},2200)}
+function flt(a,skipB){return S.acts.filter(function(x){return(skipB||F.b==="all"||x.b==+F.b)&&(F.k==="all"||x.k==+F.k)&&(F.p==="all"||x.p===F.p)})}
+function st(a){var o={n:a.length,tepat:0,telat:0,belum:0};a.forEach(function(x){o[x.s]++});o.pct=o.n?Math.round((o.tepat+o.telat)/o.n*100):0;return o}
+function cls(p){return p>=85?"c-g":p>=65?"c-y":"c-r"}
+var MENU={kepsek:[["dash","Dashboard"],["rekap","Rekap monev"],["praktik","Praktik baik"],["sus","Umpan balik"]],guru:[["rencana","Rencana"],["lapor","Lapor kegiatan"],["praktik","Praktik baik"],["sus","Umpan balik"]],pemantau:[["dash","Dashboard"],["rekap","Rekap monev"]]};
+function nav(){var n=document.getElementById("nav");n.innerHTML=MENU[role].map(function(m){return'<button data-v="'+m[0]+'" class="'+(m[0]===view?"on":"")+'">'+m[1]+'</button>'}).join("");
+ n.querySelectorAll("button").forEach(function(b){b.onclick=function(){go(b.dataset.v)}})}
+function go(v){view=v;clearInterval(tmr);nav();R[v]();window.scrollTo(0,0)}
+function opts(arr,sel){return arr.map(function(o){return'<option value="'+o[0]+'"'+(String(o[0])===String(sel)?" selected":"")+'>'+o[1]+'</option>'}).join("")}
+function fbar(){return'<div class="filters"><div><label>Bulan</label><select id="fb">'+opts([["all","Semua bulan"]].concat(BN.map(function(n,i){return[i,n]})),F.b)+'</select></div><div><label>Kelas</label><select id="fk">'+opts([["all","Semua kelas"]].concat([1,2,3,4,5,6].map(function(k){return[k,"Kelas "+k]})),F.k)+'</select></div><div><label>Program</label><select id="fp">'+opts([["all","Semua program"],["Prasasti","Prasasti"],["Esoda Magazine","Esoda Magazine"]],F.p)+'</select></div></div>'}
+function bindF(fn){["b","k","p"].forEach(function(x){document.getElementById("f"+x).onchange=function(e){F[x]=e.target.value;fn()}})}
+var R={};
+R.dash=function(){var a=flt(),s=st(a),m=document.getElementById("main");
+ var kb=[1,2,3,4,5,6].map(function(k){var q=flt().filter(function(x){return x.k===k}),z=st(q),w=function(v){return q.length?v/q.length*100:0};
+  return'<div class="bar"><span class="n">Kelas '+k+'</span><span class="t"><i class="sg" style="width:'+w(z.tepat)+'%"></i><i class="sy" style="width:'+w(z.telat)+'%"></i><i class="sr" style="width:'+w(z.belum)+'%"></i></span><span class="p">'+z.pct+'%</span></div>'}).join("");
+ var pts=BL.map(function(l,i){var q=flt(true).filter(function(x){return x.b===i});return st(q).pct});
+ var xs=pts.map(function(v,i){return[30+i*80,100-v*.8]}),path=xs.map(function(p){return p.join(",")}).join(" ");
+ var svg='<svg viewBox="0 0 300 130" width="100%" role="img" aria-label="Tren keterlaksanaan per bulan"><g stroke="var(--ln)"><line x1="20" x2="290" y1="20" y2="20"/><line x1="20" x2="290" y1="60" y2="60"/><line x1="20" x2="290" y1="100" y2="100"/></g><polyline points="'+path+'" fill="none" stroke="var(--bl)" stroke-width="3"/>'+xs.map(function(p,i){return'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="4" fill="var(--bl)"/><text x="'+p[0]+'" y="'+(p[1]-9)+'" text-anchor="middle" font-size="11" fill="var(--tx)">'+pts[i]+'%</text><text x="'+p[0]+'" y="121" text-anchor="middle" font-size="11" fill="var(--mu)">'+BL[i]+'</text>'}).join("")+'</svg>';
+ var rows=[1,2,3,4,5,6].filter(function(k){return F.k==="all"||k==+F.k}).map(function(k){return'<tr><td>Kelas '+k+' <small style="color:var(--mu)">'+GURU[k-1]+'</small></td>'+["Prasasti","Esoda Magazine"].map(function(p){var q=a.filter(function(x){return x.k===k&&x.p===p}),z=st(q);return'<td>'+(q.length?'<span class="cell '+cls(z.pct)+'">'+z.pct+'% ('+(z.tepat+z.telat)+'/'+z.n+')</span>':'-')+'</td>'}).join("")+'</tr>'}).join("");
+ var tl=a.filter(function(x){return x.s!=="tepat"}).sort(function(x,y){return(x.s==="belum"?0:1)-(y.s==="belum"?0:1)||x.k-y.k}).slice(0,8);
+ var tlh=tl.length?tl.map(function(x){var sent=S.sent[x.id];return'<div class="item"><div><b>Kelas '+x.k+'</b> · '+esc(x.n)+'<br><small style="color:var(--mu)">'+x.p+' · '+x.d+' · '+x.g+'</small></div><div><span class="tag '+(x.s==="belum"?"c-r":"c-y")+'">'+(x.s==="belum"?"Belum":"Terlambat")+'</span> <button class="btn sec sm noprint" data-r="'+x.id+'" '+(sent?"disabled":"")+'>'+(sent?"Terkirim":"Ingatkan")+'</button></div></div>'}).join(""):'<p class="sub">Semua kegiatan pada filter ini sudah terlaksana.</p>';
+ m.innerHTML='<h2>Dashboard keterlaksanaan</h2><p class="sub">Lihat kelas mana yang perlu didampingi, tanpa menunggu laporan manual.</p>'+fbar()+
+ '<div class="grid g4" style="margin-bottom:14px"><div class="card stat"><b>'+s.n+'</b><span>Kegiatan terjadwal</span></div><div class="card stat"><b style="color:var(--gr)">'+s.pct+'%</b><span>Terlaksana</span></div><div class="card stat"><b style="color:var(--ye)">'+s.telat+'</b><span>Terlambat</span></div><div class="card stat"><b style="color:var(--rd)">'+s.belum+'</b><span>Belum dilaporkan</span></div></div>'+
+ '<div class="grid g2"><div class="card"><h3>Keterlaksanaan per kelas</h3>'+kb+'<div class="leg"><span><i class="sg"></i>Tepat waktu</span><span><i class="sy"></i>Terlambat</span><span><i class="sr"></i>Belum</span></div></div><div class="card"><h3>Tren per bulan</h3>'+svg+'</div></div>'+
+ '<div class="card"><h3>Status kelas dan program</h3><div class="sw"><table><tr><th>Kelas</th><th>Prasasti</th><th>Esoda Magazine</th></tr>'+rows+'</table></div></div>'+
+ '<div class="card"><h3>Perlu tindak lanjut</h3>'+tlh+'</div>';
+ bindF(R.dash);m.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){S.sent[b.dataset.r]=1;save();toast("Pengingat terkirim ke guru (simulasi)");R.dash()}})};
+R.rekap=function(){var m=document.getElementById("main"),a=flt(true);
+ var rows=BN.map(function(n,i){var z=st(a.filter(function(x){return x.b===i}));return'<tr><td>'+n+'</td><td>'+z.n+'</td><td>'+z.tepat+'</td><td>'+z.telat+'</td><td>'+z.belum+'</td><td><span class="cell '+cls(z.pct)+'">'+z.pct+'%</span></td></tr>'}).join("");
+ var w=S.waktu,avg=w.length?Math.round(w.reduce(function(x,y){return x+y},0)/w.length):null,sc=S.sus.map(function(x){return x.skor}),sa=sc.length?Math.round(sc.reduce(function(x,y){return x+y},0)/sc.length*10)/10:null;
+ m.innerHTML='<h2>Rekap monitoring dan evaluasi</h2><p class="sub">Ringkasan otomatis untuk laporan semester Agustus sampai November 2026.</p>'+
+ '<div class="card"><h3>Rekap per bulan</h3><div class="sw"><table><tr><th>Bulan</th><th>Jadwal</th><th>Tepat</th><th>Telat</th><th>Belum</th><th>Terlaksana</th></tr>'+rows+'</table></div></div>'+
+ '<div class="grid g2"><div class="card stat"><b>'+(avg===null?"-":avg+" detik")+'</b><span>Rata-rata waktu mengisi laporan ('+w.length+' laporan baru)</span></div><div class="card stat"><b>'+(sa===null?"-":sa)+'</b><span>Rata-rata skor SUS ('+sc.length+' responden). Skor 68 ke atas dianggap baik.</span></div></div>'+
+ '<button class="btn noprint" id="pr">Cetak atau simpan PDF</button> <button class="btn sec noprint" id="rs">Reset data demo</button>';
+ document.getElementById("pr").onclick=function(){window.print()};
+ document.getElementById("rs").onclick=function(){S=seed();save();toast("Data demo dikembalikan");R.rekap()}};
+R.rencana=function(){var m=document.getElementById("main");
+ var ks=[1,2,3,4,5,6].map(function(k){return[k,"Kelas "+k+" ("+GURU[k-1]+")"]});
+ m.innerHTML='<h2>Rencana program</h2><p class="sub">Tentukan kegiatan dan tanggal target untuk kelasmu.</p><div class="card"><div class="f"><label>Kelas</label><select id="rk">'+opts(ks,1)+'</select></div><div class="f"><label>Program</label><select id="rp">'+opts([["Prasasti","Prasasti"],["Esoda Magazine","Esoda Magazine"]])+'</select></div><div class="f"><label>Jenis kegiatan</label><select id="rn"></select></div><div class="f"><label>Tanggal target</label><input type="date" id="rd" value="'+TODAY+'"></div><button class="btn" id="rb">Simpan rencana</button></div>';
+ var fill=function(){var p=document.getElementById("rp").value;document.getElementById("rn").innerHTML=opts(PROG[p].map(function(x){return[x[0],x[0]]}))};fill();document.getElementById("rp").onchange=fill;
+ document.getElementById("rb").onclick=function(){var k=+document.getElementById("rk").value,d=document.getElementById("rd").value;if(!d){toast("Isi tanggal target dulu");return}
+  S.acts.push({id:Date.now(),k:k,p:document.getElementById("rp").value,n:document.getElementById("rn").value,b:3,d:d,s:"belum",g:GURU[k-1]});save();toast("Rencana disimpan. Laporkan lewat menu Lapor kegiatan.")}};
+R.lapor=function(){var m=document.getElementById("main");t0=Date.now();
+ m.innerHTML='<h2>Lapor kegiatan</h2><p class="sub">Cukup satu menit. Pilih kegiatan, centang, dan tulis catatan singkat.</p><div class="timer" id="tm">Waktu mengisi: 0 detik</div><div class="card"><div class="f"><label>Kelas</label><select id="lk">'+opts([1,2,3,4,5,6].map(function(k){return[k,"Kelas "+k+" ("+GURU[k-1]+")"]}),1)+'</select></div><div class="f"><label>Kegiatan yang belum dilaporkan</label><select id="ln"></select></div><div class="f"><label>Jumlah siswa terlibat</label><input type="number" id="ls" min="1" max="40" value="28"></div><div class="f"><label>Catatan singkat</label><textarea id="lc" rows="2" placeholder="Contoh: siswa antusias, 3 siswa maju membaca puisi"></textarea></div><div class="f"><label>Foto kegiatan (simulasi)</label><input type="file" id="lf" accept="image/*"></div><label style="display:flex;gap:8px;align-items:center;margin-bottom:12px"><input type="checkbox" id="lx"> Kegiatan sudah terlaksana</label><button class="btn" id="lb">Kirim laporan</button></div>';
+ var fill=function(){var k=+document.getElementById("lk").value,l=S.acts.filter(function(x){return x.k===k&&x.s==="belum"});document.getElementById("ln").innerHTML=l.length?opts(l.map(function(x){return[x.id,x.n+" ("+x.p+", "+x.d+")"]})):'<option value="">Tidak ada kegiatan tertunda</option>'};fill();document.getElementById("lk").onchange=fill;
+ tmr=setInterval(function(){var e=document.getElementById("tm");if(e)e.textContent="Waktu mengisi: "+Math.round((Date.now()-t0)/1000)+" detik"},1000);
+ document.getElementById("lb").onclick=function(){var id=+document.getElementById("ln").value;if(!id){toast("Pilih kegiatan dulu");return}if(!document.getElementById("lx").checked){toast("Centang dulu bahwa kegiatan sudah terlaksana");return}
+  var a=S.acts.filter(function(x){return x.id===id})[0];a.s=TODAY<=a.d?"tepat":"telat";S.waktu.push(Math.round((Date.now()-t0)/1000));save();clearInterval(tmr);toast("Laporan terkirim dalam "+S.waktu[S.waktu.length-1]+" detik");R.lapor()}};
+R.praktik=function(){var m=document.getElementById("main");
+ m.innerHTML='<h2>Praktik baik</h2><p class="sub">Bagikan kegiatan yang berhasil agar guru lain bisa mencoba di kelasnya.</p><div class="grid g2">'+S.praktik.map(function(p){return'<div class="card"><h3>'+esc(p.j)+'</h3><span class="tag c-g">Kelas '+esc(p.k)+'</span><p>'+esc(p.t)+'</p></div>'}).join("")+'</div><div class="card"><h3>Bagikan praktik baikmu</h3><div class="f"><label>Judul</label><input type="text" id="pj"></div><div class="f"><label>Kelas</label><select id="pk">'+opts([1,2,3,4,5,6].map(function(k){return[k,"Kelas "+k]}))+'</select></div><div class="f"><label>Deskripsi singkat</label><textarea id="pt" rows="3"></textarea></div><button class="btn" id="pb">Bagikan</button></div>';
+ document.getElementById("pb").onclick=function(){var j=document.getElementById("pj").value.trim(),t=document.getElementById("pt").value.trim();if(!j||!t){toast("Isi judul dan deskripsi");return}S.praktik.unshift({j:j,k:document.getElementById("pk").value,t:t});save();toast("Praktik baik dibagikan");R.praktik()}};
+R.sus=function(){var m=document.getElementById("main");
+ m.innerHTML='<h2>Umpan balik uji coba</h2><p class="sub">Beri nilai 1 (sangat tidak setuju) sampai 5 (sangat setuju). Skor SUS dihitung otomatis.</p><div class="card">'+SUSQ.map(function(q,i){return'<div class="q"><div>'+(i+1)+'. '+q+'</div><div class="likert">'+[1,2,3,4,5].map(function(v){return'<label><input type="radio" name="q'+i+'" value="'+v+'">'+v+'</label>'}).join("")+'</div></div>'}).join("")+'<div class="f" style="margin-top:12px"><label>Nama atau peran (opsional)</label><input type="text" id="sn" placeholder="Contoh: Guru kelas 4"></div><button class="btn" id="sb">Hitung skor SUS</button><div id="sr"></div></div>';
+ document.getElementById("sb").onclick=function(){var t=0;for(var i=0;i<10;i++){var c=document.querySelector('input[name=q'+i+']:checked');if(!c){toast("Jawab semua pernyataan dulu");return}var v=+c.value;t+=i%2===0?v-1:5-v}
+  var sk=t*2.5;S.sus.push({skor:sk,n:document.getElementById("sn").value||"Anonim"});save();document.getElementById("sr").innerHTML='<p><b>Skor SUS: '+sk+'</b> ('+(sk>=68?"di atas rata-rata, kegunaan baik":"di bawah 68, perlu perbaikan")+'). Total responden: '+S.sus.length+'.</p>'}};
+document.getElementById("role").onchange=function(e){role=e.target.value;go(MENU[role][0][0])};
+load();go("dash");
+</script>
+</body>
+</html>
